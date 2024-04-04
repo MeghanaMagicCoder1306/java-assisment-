@@ -1,0 +1,40 @@
+package javaAssisment;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class WordCount {
+	
+	
+	
+	    public static void main(String[] args) {
+	        String str = "This is a sample string to count the number of words in the string.";
+	        int wordCount = countWords(str);
+	        System.out.println("Number of words in the string: " + wordCount);
+	    }
+
+	    public static int countWords(String str) {
+	        // Create a HashMap to store words and their counts
+	        Map<String, Integer> wordCountMap = new HashMap<>();
+
+	        // Split the string into words using space as the delimiter
+	        String[] words = str.split("\\s+");
+
+	        // Iterate through each word in the array
+	        for (String word : words) {
+	            // If the word is already present in the map, increment its count
+	            if (wordCountMap.containsKey(word)) {
+	                wordCountMap.put(word, wordCountMap.get(word) + 1);
+	            } else {
+	                // If the word is not present, put it in the map with count as 1
+	                wordCountMap.put(word, 1);
+	            }
+	        }
+
+	        // Return the size of the map, which represents the number of unique words
+	        return wordCountMap.size();
+	    }
+	
+
+
+}
